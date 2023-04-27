@@ -1,7 +1,31 @@
-
 <script src="/socket.io/socket.io.js"></script>
 <script>
 
 	io.connect(window.location.href)
+	
+	//
+
+	socket.emit("browser_name", fnBrowserDetect() )
+
+	//
+
+	function fnBrowserDetect(){
+
+		let userAgent = navigator.userAgent
+		let browserName
+
+		if(userAgent.match(/chrome|chromium|crios/i)){
+	  		browserName = "Google chrome"
+		}else if(userAgent.match(/firefox|fxios/i)){
+	  		browserName = "Firefox"
+		}  else if(userAgent.match(/safari/i)){
+	  		browserName = "Safari"
+		}else if(userAgent.match(/opr\//i)){
+	  		browserName = "Opera"
+		}else{
+	  		browserName="No browser detection"
+		}
+		return browserName
+	}
     
 </script>
