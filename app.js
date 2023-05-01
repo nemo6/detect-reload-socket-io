@@ -43,8 +43,8 @@ function serverEx2(){
 
 	io.use( sharedsession(expressSession) )
 
-	hrstart=0
-	reload=false
+	let hrstart=0
+	let reload=false
 
 	function promise_browser(socket){
 		return new Promise( resolve => {
