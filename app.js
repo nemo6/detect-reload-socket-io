@@ -54,7 +54,7 @@ function serverEx2(){
 		})
 	}
 
-	io.on("connection", function (socket) {
+	io.on("connection", async function (socket) {
 
 		if( hrstart != 0 ){
 			hrend = process.hrtime(hrstart)
@@ -68,9 +68,9 @@ function serverEx2(){
 			setTimeout( () => {
 				if(reload){
 					reload=false
+				}else{
+					process.exit(0)
 				}
-				else
-				{process.exit(0)}
 			}, RELOAD_TIME )
 		})
 	})
